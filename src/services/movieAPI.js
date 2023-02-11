@@ -7,7 +7,7 @@ const movieSetvice = axios.create({
   },
 });
 
-export const popularMovie = async params => {
+export const getMovie = async params => {
   const { data } = await movieSetvice.get('', { params });
   return data;
 };
