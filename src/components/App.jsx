@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 const HomePage = lazy(() => import('page/HomePage'));
@@ -12,14 +12,18 @@ export const App = () => {
   return (
     <>
       <Header />
-      <Routes>
+      
+        <Suspense fallback={<p>Loading...</p>}>
+        <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movies" element={<Movie />} />
         <Route path="/movies/:movieId" element={<MovieDetals />}>
           <Route path="cast" element={<Cast />} />
           <Route path="review" element={<Reviews />} />
         </Route>
-      </Routes>
+        </Routes>
+        </Suspense>
+   
     </>
   );
 };
