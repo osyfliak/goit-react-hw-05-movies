@@ -1,3 +1,4 @@
+import { MovieList } from 'components/MovieList/MovieList';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { Notify } from 'notiflix';
 import { useEffect, useState } from 'react';
@@ -40,6 +41,7 @@ export const Movie = () => {
   return (
     <>
       <SearchBar onSubmit={handleSearch} title={movie.title} />
+      <MovieList movie={movie} />
     </>
   );
 };

@@ -20,8 +20,8 @@ export const SearchBar=({onSubmit})=>{
     return(
       <form className="row g-3 m-3" onSubmit={resetForm}>
       <div className="col-auto">
-        <label for="staticEmail2" className="visually-hidden">Email</label>
-        <input type="text" value={form} onChange={handleChangeForm} readonly className="form-control-plaintext border "/>
+        <label  className="visually-hidden">Email</label>
+        <input type="text" value={form} onChange={handleChangeForm}  className="form-control-plaintext border "/>
       </div>
       <div className="col-auto">
         <button type="submit" className="btn btn-primary mb-3">Search</button>

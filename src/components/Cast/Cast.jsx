@@ -1,14 +1,14 @@
-import { Notify } from 'notiflix';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Notify } from 'notiflix';
 import { getMovieCredits } from 'services/movieAPI';
 import { IMG_URL } from 'services/movieAPI';
+import PropTypes from 'prop-types';
 
 export const Cast = () => {
   const [cast, setCast] = useState([]);
   const { movieId } = useParams();
 
-  
   useEffect(() => {
     const movieCast = async () => {
       try {
@@ -22,21 +22,23 @@ export const Cast = () => {
 
     movieCast();
   }, [movieId]);
- 
-  return (
-   
-    
-      <ul className="row row-cols-1 row-cols-md-5 g-5" >      
-        {cast.map(item => (
-          <li key={item.id}>
-            <img className="card-img-top" src={`${IMG_URL}${item.profile_path}`} alt={item.name} />
-            <p className="card-title">{item.name}</p>
-          </li>
-        ))}
-      </ul>
 
+  return (
+    <ul className="row row-cols-1 row-cols-md-5 g-5">
+      {cast.map(item => (
+        <li key={item.id}>
+          <img
+            className="card-img-top"
+            src={`${IMG_URL}${item.profile_path}`}
+            alt={item.name}
+          />
+          <p className="card-title">{item.name}</p>
+        </li>
+      ))}
+    </ul>
   );
 };
 
-
-
+Cast.propTypes = {
+  movieId: PropTypes.string.isRequired,
+};

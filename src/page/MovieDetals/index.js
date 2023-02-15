@@ -1,0 +1,1 @@
+export {MovieDetals as default} from './MovieDetals';

@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { getMovieTrending } from 'services/movieAPI';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { Link, useLocation } from 'react-router-dom';
+
+import { MovieList } from 'components/MovieList/MovieList';
 
 export const HomePage = () => {
   const [movie, setMovie] = useState([]);
-  const location = useLocation();
+  // const location = useLocation();
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -22,15 +23,5 @@ export const HomePage = () => {
     fetchMovie();
   }, []);
 
-  return (
-    <ul>
-      {movie.map(item => (
-        <li key={item.id}>
-          <Link state={{ from: location }} to={`/movies/${item.id}`}>
-            {item.title}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  );
+  return <MovieList movie={movie} />;
 };

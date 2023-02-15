@@ -6,7 +6,7 @@ import { MovieDetalComponent } from 'components/MovieDetalComponent/MovieDetalCo
 import GoBack from 'components/GoBack/GoBack';
 
 export const MovieDetals = () => {
-  const [movie, setMovie] = useState('null');
+  const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
 
   const location = useLocation();
@@ -24,22 +24,23 @@ export const MovieDetals = () => {
 
     movieDetals();
   }, [movieId]);
-console.log(movie.genres);
+
+// console.log(location);
   return (
     <>
       <GoBack />
-      <MovieDetalComponent
+      {movie && <MovieDetalComponent
         src={movie.poster_path}
         title={movie.title}
         overview={movie.overview}
         genres={movie.genres}
-      />
-      <Link state={{ from: location }} to="cast">
+      />}
+      <Link state={{ from: location.state?.from || location }} to="cast">
      
-      <button class="btn btn-outline-primary m-3">Cast</button>
+      <button className="btn btn-outline-primary m-3">Cast</button>
       </Link>
-      <Link state={{ from: location }} to="review">
-        <button class="btn btn-outline-primary ">Reviews</button>
+      <Link state={{ from: location.state?.from || location }} to="review">
+        <button className="btn btn-outline-primary ">Reviews</button>
       </Link>
       <Suspense fallback={<p>Зробіть свій вибір</p>}>
         <Outlet />
