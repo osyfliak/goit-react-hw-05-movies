@@ -2,7 +2,7 @@ import { Notify } from 'notiflix';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieReviews } from 'services/movieAPI';
-import PropTypes from 'prop-types';
+
 
 export const Reviews = () => {
   const [reviews, setReviews] = useState([]);
