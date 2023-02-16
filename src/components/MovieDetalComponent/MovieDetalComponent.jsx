@@ -1,4 +1,5 @@
 import { IMG_URL } from 'services/movieAPI';
+import PropTypes from 'prop-types';
 
 export const MovieDetalComponent = ({ src, title, overview, genres }) => {
 
@@ -24,4 +25,10 @@ export const MovieDetalComponent = ({ src, title, overview, genres }) => {
       </div>
     </>
   );
+};
+
+MovieDetalComponent.propTypes = { src: PropTypes.string,
+  title: PropTypes.string,
+  overview: PropTypes.string,
+  genres: PropTypes.array
 };

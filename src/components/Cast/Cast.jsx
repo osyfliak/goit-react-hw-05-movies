@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Notify } from 'notiflix';
 import { getMovieCredits } from 'services/movieAPI';
 import { IMG_URL } from 'services/movieAPI';
-import PropTypes from 'prop-types';
+
 
 export const Cast = () => {
   const [cast, setCast] = useState([]);
@@ -39,6 +39,3 @@ export const Cast = () => {
   );
 };
 
-Cast.propTypes = {
-  movieId: PropTypes.string.isRequired,
-};
