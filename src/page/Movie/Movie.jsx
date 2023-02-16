@@ -17,8 +17,8 @@ export const Movie = () => {
     const fetchMovie = async () => {
       try {
         const data = await getMovieSearch({ query, page: 1 });
-        if (!data) {
-          Notify.failure('We have nothing for this search');
+        if (data.results.length === 0) {
+          Notify.failure('Nothing found');
         }
 
         if (data.results.length) {
